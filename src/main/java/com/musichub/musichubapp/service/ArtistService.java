@@ -21,7 +21,6 @@ public class ArtistService {
     private YouTubeClient youTubeClient;
 
 
-    // ta metoda przekierowuje do portali i pokazuje dane nt. nazwy wykonawcy
     public ResponseDto getDetails(String name) {
         TicketMasterResponseDto tmMusicianInfo = tmclient.getMusicianInfo(name);
 
