@@ -1,5 +1,6 @@
 package com.musichub.musichubapp.domain;
 
+import com.musichub.musichubapp.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
