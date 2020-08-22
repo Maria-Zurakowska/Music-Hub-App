@@ -1,5 +1,5 @@
 package com.musichub.musichubapp.repository;
-import com.musichub.musichubapp.domain.Artist;
+import com.musichub.musichubapp.entities.Artist;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +14,7 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer> {
     @Override
     Optional<Artist> findById(Integer id);
     @Override
-    Artist save(Artist user);
+    Artist save(Artist artist);
     @Override
     void deleteById(Integer id);
 }
