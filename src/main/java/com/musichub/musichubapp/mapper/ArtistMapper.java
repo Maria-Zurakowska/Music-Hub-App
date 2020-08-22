@@ -1,6 +1,6 @@
 package com.musichub.musichubapp.mapper;
 
-import com.musichub.musichubapp.domain.Artist;
+import com.musichub.musichubapp.entities.Artist;
 import com.musichub.musichubapp.domain.ArtistDto;
 import org.springframework.stereotype.Component;
 
@@ -30,8 +30,6 @@ public class ArtistMapper {
                 artistDto.getName(),
                 artistDto.getGenre(),
                 artistDto.getLikes());
-
-
     }
 
     }
