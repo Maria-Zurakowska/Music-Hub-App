@@ -9,12 +9,6 @@ public class SpotifyClient {
 
     private final RestTemplate restTemplate;
 
-// https://api.spotify.com/v1/search?query=Lady+Gaga&offset=0&limit=20&type=artist
-    // tak wygląda przykładowy adres. W argumencie metody wpisuję wartość w " ", np. "Rolling Stones",
-    //a jak to będzie wyglądało z + czy %20 rozdzielającymi nazwę w String url?
-
-    //Zapytanie do Spotify wymaga wygenerowania Tokena.
-
     public SpotifyClient(RestTemplate restTemplate){
 
         this.restTemplate = restTemplate;
@@ -24,4 +18,11 @@ public class SpotifyClient {
         SpotifyResponseDto response = restTemplate.getForObject(url, SpotifyResponseDto.class);
         return response;
     }
+
+//    --to be developed--
+//    public SpotifyResponseDto getMusicianAlbums(String musicianID){
+//        String url = "https://api.spotify.com/v1/artists/musicianID/albums";
+//        SpotifyAlbumDto response = restTemplate.getForObject(url,SpotifyResponseDto.class);
+//        return response;
+//    }
 }
