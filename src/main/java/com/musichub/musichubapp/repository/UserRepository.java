@@ -1,6 +1,6 @@
 package com.musichub.musichubapp.repository;
 
-import com.musichub.musichubapp.domain.User;
+import com.musichub.musichubapp.entities.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
