@@ -1,7 +1,8 @@
-package com.musichub.musichubapp.domain;
+package com.musichub.musichubapp.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,6 +18,8 @@ public class User {
     private String gender;
     private String city;
     private String country;
+    private List<Artist> likedArtists = new ArrayList<>();
+
 
     public User() {
     }
@@ -80,6 +83,17 @@ public class User {
         return country;
     }
 
+
+    @ManyToMany (cascade = CascadeType.ALL)
+    @JoinTable(
+            name= "USER_FAVOURITE_ARTIST",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn (name = "artist_id", referencedColumnName = "id") )
+    public List<Artist> getLikedArtists(){
+        return likedArtists;
+    }
+
+
     private void setId(int id) {
         this.id = id;
     }
@@ -116,11 +130,7 @@ public class User {
         this.country = country;
     }
 
-
-    @ManyToMany
-    @JoinTable(
-            name= "USER_FAVOURITE_ARTIST",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn (name = "artist_id") )
-    private List<Artist> likedArtists;
+    public void setLikedArtists(List<Artist> likedArtists){
+        this.likedArtists = likedArtists;
+    }
 }
