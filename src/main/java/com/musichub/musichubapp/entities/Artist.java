@@ -1,10 +1,10 @@
-package com.musichub.musichubapp.domain;
+package com.musichub.musichubapp.entities;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,6 +15,7 @@ public class Artist {
     private int id;
     private String name;
     private String genre;
+    private List<User> likes = new ArrayList<>();
 
     public Artist() {
     }
@@ -32,16 +33,14 @@ public class Artist {
         return name;
     }
 
-
-
-    @Column(name = "LIKES")
-    public List<User> getLikes() {
-        return likes;
-    }
-
     @Column(name = "GENRES")
     public String getGenre() {
         return genre;
+    }
+
+    @ManyToMany(mappedBy = "likedArtists")
+    public List<User> getLikes(){
+        return likes;
     }
 
     private void setId(int id) {
@@ -52,16 +51,11 @@ public class Artist {
         this.name = name;
     }
 
-
-
-    private void setLikes(List<User> likes) {
-        this.likes = likes;
-    }
+    private void setLikes(List<User> likes) { this.likes = likes;}
 
     private void setGenre(String genre) {
         this.genre = genre;
     }
 
-    @ManyToMany(mappedBy = "likedArtists")
-    private List<User> likes;
+
 }
