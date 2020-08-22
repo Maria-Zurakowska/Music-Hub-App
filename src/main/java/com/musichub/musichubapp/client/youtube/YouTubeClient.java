@@ -18,4 +18,10 @@ public class YouTubeClient {
         YouTubeResponseDto response = restTemplate.getForObject(url, YouTubeResponseDto.class);
         return response;
     }
+
+    public YouTubeResponseDto getMusicianYouTubeChannel(String musician){
+        String url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&forUsername=" + musician + "&key=AIzaSyAxB-EhsCnvo9Fl8wjU81aVHO1wyrmbSZc";
+        YouTubeResponseDto response = restTemplate.getForObject(url,YouTubeResponseDto.class);
+        return response;
+    }
 }
