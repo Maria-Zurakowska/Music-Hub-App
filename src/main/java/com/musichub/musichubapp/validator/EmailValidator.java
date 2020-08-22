@@ -14,10 +14,8 @@ public class  EmailValidator {
         return validationResult;
     }
 
-    // my sample regex: " ([A-Za-z0-9_])+@([A-Za-z])+\\.[A-Za-z]{2,3}"
-
     //Email must have:
-    // A-Z characters
+    //A-Z characters
     //a-z characters
     //0-9 numbers
     // may contain . _ /
