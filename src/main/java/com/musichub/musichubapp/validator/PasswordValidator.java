@@ -14,9 +14,9 @@ public class  PasswordValidator {
     } 
 
     //Password must contain at least:
-    // 8 character, max 20
+    // 8 characters, maximum 20
     // 1 number
-    // 1 upper case latter
+    // 1 upper case letter
     // 1 lower case letter
     // 1 special character
     // not any spaces
