@@ -13,8 +13,14 @@ public class TicketMasterClient {
         this.restTemplate = restTemplate;
     }
     public TicketMasterResponseDto getMusicianInfo(String musician){
-        String url = "https://app.ticketmaster.com/discovery/v2/events?apikey=ndtkknvZK0Ib1P1DJPd8hI5UdGAwr7LG&keyword=" + musician + "&locale=*&countryCode=US";
+        String url = "https://app.ticketmaster.com/discovery/v2/events?apikey=ndtkknvZK0Ib1P1DJPd8hI5UdGAwr7LG&keyword=" + musician + "&locale=*";
         TicketMasterResponseDto response = restTemplate.getForObject(url, TicketMasterResponseDto.class);
+        return response;
+    }
+
+    public TicketMasterResponseDto getMusicianVenuesByCountry (String musician, String countryCode){
+        String url = "https://app.ticketmaster.com/discovery/v2/events?apikey=ndtkknvZK0Ib1P1DJPd8hI5UdGAwr7LG&keyword=" + musician + "&locale=*&countryCode=" + countryCode;
+        TicketMasterResponseDto response = restTemplate.getForObject(url,TicketMasterResponseDto.class);
         return response;
     }
 }
