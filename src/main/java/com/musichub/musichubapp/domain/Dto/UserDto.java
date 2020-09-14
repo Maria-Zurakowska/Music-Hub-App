@@ -1,65 +1,30 @@
 package com.musichub.musichubapp.domain.Dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.musichub.musichubapp.entities.Artist;
+import com.musichub.musichubapp.entities.SearchHistory;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@AllArgsConstructor
+@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
     private int id;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private int age;
     private String gender;
     private String city;
     private String country;
+    private List<Artist> likedArtists = new ArrayList<>();
+    private List<SearchHistory> searchHistoryList;
 
-    public UserDto(int id, String email, String password, int age, String gender, String city, String country) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.age = age;
-        this.gender = gender;
-        this.city = city;
-        this.country = country;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    @Override
-    public String toString() {
-        return "UserDto{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", city='" + city + '\'' +
-                ", country='" + country + '\'' +
-                '}';
-    }
 }
