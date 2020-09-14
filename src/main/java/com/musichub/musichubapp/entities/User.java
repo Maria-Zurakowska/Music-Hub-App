@@ -19,12 +19,13 @@ public class User {
     private String city;
     private String country;
     private List<Artist> likedArtists = new ArrayList<>();
+    private List<SearchHistory> searchHistoryList;
 
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password, int age, String gender, String city, String country){
+    public User(int id, String firstName, String lastName, String email, String password, int age, String gender, String city, String country, List<Artist> likedArtists, List<SearchHistory> searchHistoryList){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email=email;
@@ -33,6 +34,8 @@ public class User {
         this.gender=gender;
         this.city=city;
         this.country=country;
+        this.likedArtists = likedArtists;
+        this.searchHistoryList = searchHistoryList;
     }
 
     @Id
@@ -93,16 +96,20 @@ public class User {
         return likedArtists;
     }
 
+    @OneToMany(mappedBy = "user")
+    public List<SearchHistory> getSearchHistoryList() {
+        return searchHistoryList;
+    }
 
     private void setId(int id) {
         this.id = id;
     }
 
-    private void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    private void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -110,7 +117,7 @@ public class User {
         this.email = email;
     }
 
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -122,7 +129,7 @@ public class User {
         this.gender = gender;
     }
 
-    private void setCity(String city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -130,7 +137,11 @@ public class User {
         this.country = country;
     }
 
-    public void setLikedArtists(List<Artist> likedArtists){
+    private void setLikedArtists(List<Artist> likedArtists){
         this.likedArtists = likedArtists;
+    }
+
+    private void setSearchHistoryList(List<SearchHistory> searchHistoryList) {
+        this.searchHistoryList = searchHistoryList;
     }
 }
