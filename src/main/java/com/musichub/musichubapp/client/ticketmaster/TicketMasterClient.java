@@ -18,8 +18,8 @@ public class TicketMasterClient {
         return response;
     }
 
-    public TicketMasterResponseDto getMusicianVenuesByCountry (String musician, String countryCode){
-        String url = "https://app.ticketmaster.com/discovery/v2/events?apikey=ndtkknvZK0Ib1P1DJPd8hI5UdGAwr7LG&keyword=" + musician + "&locale=*&countryCode=" + countryCode;
+    public TicketMasterResponseDto getMusicianVenuesByCountry (String musician){
+        String url = "https://app.ticketmaster.com/discovery/v2/events?apikey=ndtkknvZK0Ib1P1DJPd8hI5UdGAwr7LG&keyword=" + musician + "&locale=*&countryCode=PL";
         TicketMasterResponseDto response = restTemplate.getForObject(url,TicketMasterResponseDto.class);
         return response;
     }
