@@ -1,12 +1,9 @@
 package com.musichub.musichubapp.service;
 
-import com.musichub.musichubapp.entities.SearchHistory;
 import com.musichub.musichubapp.entities.User;
-import com.musichub.musichubapp.repository.SearchHistoryRepository;
 import com.musichub.musichubapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -19,9 +16,6 @@ public class DbUserService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private SearchHistoryRepository searchHistoryRepository;
 
 
     public List<User> getAllUsers() {
@@ -47,9 +41,6 @@ public class DbUserService {
         userRepository.deleteById(id);
     }
 
-    public List<SearchHistory> getLastArtistsByWhenSearched(LocalDate date) {
-        return searchHistoryRepository.findAllByWhenSearched(date);
-    }
 
     public void updatePassword(String oldPassword, String newPassword, Integer userId) {
         userRepository.findById(userId).ifPresent(u -> {
@@ -75,7 +66,7 @@ public class DbUserService {
         userRepository.findById(userId).ifPresent(u -> {
             String currentPassword = u.getPassword();
             if (currentPassword.equals(password)) {
-                u.setFirstName(lastName);
+                u.setLastName(lastName);
                 userRepository.save(u);
             }
         });
@@ -85,7 +76,7 @@ public class DbUserService {
         userRepository.findById(userId).ifPresent(u -> {
             String currentPassword = u.getPassword();
             if (currentPassword.equals(password)) {
-                u.setFirstName(city);
+                u.setCity(city);
                 userRepository.save(u);
             }
         });
