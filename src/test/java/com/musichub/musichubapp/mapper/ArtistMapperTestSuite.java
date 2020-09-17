@@ -83,8 +83,8 @@ public class ArtistMapperTestSuite {
 
         // Then
 
-        Assert.assertEquals("Radiohead", artist.getName());
-        Assert.assertEquals(artistDto.getId(), artist.getId());
-        Assert.assertEquals("alternative rock", artist.getGenre());
+        Assert.assertEquals("Nirvana", result.getName());
+        Assert.assertEquals(artistDto.getId(), result.getId());
+        Assert.assertEquals("grunge", result.getGenre());
     }
 }
