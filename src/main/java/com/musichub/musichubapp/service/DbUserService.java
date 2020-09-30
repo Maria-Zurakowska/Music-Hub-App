@@ -2,6 +2,7 @@ package com.musichub.musichubapp.service;
 
 import com.musichub.musichubapp.entities.User;
 import com.musichub.musichubapp.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -9,13 +10,14 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@RequiredArgsConstructor
 @Service
 public class DbUserService {
 
     private static final Logger LOGGER = Logger.getLogger(DbUserService.class.getName());
 
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
 
     public List<User> getAllUsers() {
@@ -81,4 +83,35 @@ public class DbUserService {
             }
         });
     }
+
+    public void updateCountry(String password, Integer userId, String country){
+        userRepository.findById(userId).ifPresent(u -> {
+            String currentPassword = u.getPassword();
+            if (currentPassword.equals(password)){
+                u.setCountry(country);
+                userRepository.save(u);
+            }
+        });
+    }
+
+    public void updateAge(String password, Integer userId, Integer age){
+        userRepository.findById(userId).ifPresent(u -> {
+            String currentPassword = u.getPassword();
+            if(currentPassword.equals(password)){
+                u.setAge(age);
+                userRepository.save(u);
+            }
+        });
+    }
+
+    public void updateEmail(String password, Integer userId, String email){
+        userRepository.findById(userId).ifPresent(u -> {
+            String currentPassword = u.getPassword();
+            if (currentPassword.equals(password)) {
+                u.setEmail(email);
+                userRepository.save(u);
+            }
+        });
+    }
+
 }
