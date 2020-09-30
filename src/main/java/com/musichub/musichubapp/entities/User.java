@@ -113,7 +113,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -121,7 +121,7 @@ public class User {
         this.password = password;
     }
 
-    private void setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -133,7 +133,7 @@ public class User {
         this.city = city;
     }
 
-    private void setCountry(String country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 
