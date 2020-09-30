@@ -63,17 +63,17 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateFirstName")
-    public void updateName(@RequestParam String password, @RequestParam Integer userId, String firstName) {
+    public void updateName(@RequestParam String password, @RequestParam Integer userId, @RequestParam String firstName) {
         dbUserService.updateFirstName(password, userId, firstName);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateLastName")
-    public void updateLastName(@RequestParam String password, @RequestParam Integer userId, String lastName) {
+    public void updateLastName(@RequestParam String password, @RequestParam Integer userId, @RequestParam String lastName) {
         dbUserService.updateLastName(password, userId, lastName);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateCity")
-    public void updateCity(@RequestParam String password, @RequestParam Integer userId, String city) {
+    public void updateCity(@RequestParam String password, @RequestParam Integer userId, @RequestParam String city) {
         dbUserService.updateCity(password, userId, city);
     }
 }
