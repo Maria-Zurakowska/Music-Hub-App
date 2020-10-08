@@ -21,7 +21,7 @@ public class EmailScheduler {
     private AdminConfig adminConfig;
 
     //@Scheduled(fixedDelay = 10000)
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "0 0 10 * * * MON")
     public void sendInformationEmail() {
         long size = searchHistoryRepository.count();
         simpleEmailService.send(new Mail(
