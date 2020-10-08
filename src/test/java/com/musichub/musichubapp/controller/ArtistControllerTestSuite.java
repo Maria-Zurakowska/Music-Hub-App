@@ -42,7 +42,7 @@ public class ArtistControllerTestSuite {
         initMocks(this);
     }
 
-// controller as POJO object (not MockMVC). To not set up Spring context due to time of execution.
+// Controller as POJO object (not MockMVC) to not set up Spring context due to time of execution.
 
     @InjectMocks
     private ArtistController artistController;
