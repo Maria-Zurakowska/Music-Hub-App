@@ -31,6 +31,8 @@ public class UserControllerTestSuite {
         initMocks(this);
     }
 
+// Controller as POJO object (not MockMVC) to not set up Spring context due to time of execution.
+
     @InjectMocks
     private UserController userController;
 
